@@ -84,6 +84,7 @@ const convert = (mode, value, oldUnit, newUnit) => {
 			return convertRatio(value, oldUnit, newUnit);
 		case 'p':
 			return convertPercent(value, oldUnit, newUnit);
+		
 	}
 };
 

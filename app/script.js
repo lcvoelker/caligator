@@ -248,12 +248,19 @@ const appPopup = document.querySelectorAll('.modal')[0];
 	const { BrowserWindow } = require('electron').remote;
 
 	function init() {
-		document
-			.querySelector('#app--minimize')
-			.addEventListener('click', () => {
+		document.querySelector('#app--minimize').addEventListener('click', () => {
 				const window = BrowserWindow.getFocusedWindow();
 				window.minimize();
-			});
+		});
+
+		document.querySelector('#app--maximize').addEventListener('click', () => {
+			const window = BrowserWindow.getFocusedWindow();
+			if (window.isMaximized()) {
+				window.unmaximize();
+			} else {
+				window.maximize();
+			}
+		});
 
 		document.querySelector('#app--close').addEventListener('click', () => {
 			const window = BrowserWindow.getFocusedWindow();
